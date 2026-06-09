@@ -9,9 +9,9 @@ body:
     attributes:
       label: Sistema / Produto
       options:
-        - "AWM Server"
-        - "AWM Client"
-        - "Precision Docs"
+        - "Cloud"
+        - "AWM"
+        - "Precision Legacy"
         - "Infra / CI-CD"
         - "Outro"
     validations:

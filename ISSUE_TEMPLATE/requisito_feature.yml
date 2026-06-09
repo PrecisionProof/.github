@@ -1,0 +1,209 @@
+name: "✨ Requisito / Feature"
+description: "Novo requisito, feature ou melhoria — com análise de risco FMEA integrada"
+title: "[REQ] "
+labels: ["feature", "triagem-pendente"]
+body:
+
+  - type: markdown
+    attributes:
+      value: "## 📋 Identificação do Requisito"
+
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema / Produto
+      options:
+        - "AWM Server"
+        - "AWM Client"
+        - "Precision Docs"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: input
+    id: topico
+    attributes:
+      label: Tópico / Módulo
+      description: "Área funcional afetada"
+      placeholder: "Ex: Módulo de Workflow de Aprovação"
+    validations:
+      required: true
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição do Requisito
+      description: "Descreva a necessidade. Foque no problema, não na solução."
+      placeholder: "Como [tipo de usuário], preciso [capacidade] para [benefício]."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo_mudanca
+    attributes:
+      label: Tipo de Mudança
+      options:
+        - "Nova funcionalidade"
+        - "Melhoria de funcionalidade existente"
+        - "Adequação regulatória / legislação"
+        - "Correção estrutural"
+    validations:
+      required: true
+
+  - type: input
+    id: origem
+    attributes:
+      label: Origem / Cliente
+      placeholder: "Ex: Cliente XPTO, Comercial, Decisão estratégica"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > **Nota:** O campo **Versão** é preenchido diretamente no GitHub Projects
+        > (campo *Version*), não neste formulário.
+
+  - type: markdown
+    attributes:
+      value: "## 📝 Requisitos e Condições de Aceite"
+
+  - type: textarea
+    id: requisitos_funcionais
+    attributes:
+      label: Requisitos Funcionais
+      description: "Liste os requisitos. Alimentam o ERU do produto."
+      placeholder: |
+        - RF01: O sistema deve permitir...
+        - RF02: O sistema deve validar...
+        - RF03: Quando o usuário..., o sistema deve...
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios_aceite
+    attributes:
+      label: Critérios de Aceite
+      description: "Como saberemos que o requisito foi atendido?"
+      placeholder: |
+        - [ ] CA01: Ao executar X, o resultado deve ser Y
+        - [ ] CA02: O tempo de resposta não deve exceder Z segundos
+        - [ ] CA03: O log de auditoria deve registrar a ação
+    validations:
+      required: true
+
+  - type: textarea
+    id: viabilidade
+    attributes:
+      label: Análise de Viabilidade
+      description: "Preencher na triagem pelo líder técnico."
+      placeholder: |
+        **Viabilidade técnica:** Sim/Não — Justificativa
+        **Viabilidade financeira:** Sim/Não — Justificativa
+        **Dependências:** Listar sistemas ou módulos dependentes
+        **Mudança em banco de dados:** Sim/Não
+        **Migração de dados necessária:** Sim/Não
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Análise de Risco — FMEA
+
+        Preencha para cada risco/modo de falha identificado.
+        Escala: **1 (Baixo) a 5 (Muito Alto)**
+
+        **NPR = Possibilidade × Severidade × Detectabilidade**
+
+  - type: textarea
+    id: fmea
+    attributes:
+      label: Tabela FMEA
+      description: "Copie o bloco abaixo para cada risco identificado."
+      placeholder: |
+        ### Risco 1
+        - **Modo de Falha:** [O que pode dar errado?]
+        - **Efeito da Falha:** [Qual o impacto se falhar?]
+        - **Causa Potencial:** [Por que pode falhar?]
+        - **Possibilidade (1-5):** 
+        - **Severidade (1-5):** 
+        - **Classe do Risco:** [Dados/Segurança/Funcional/Usabilidade]
+        - **Controle Existente:** [Controle atual que mitiga]
+        - **Detectabilidade (1-5):** [1=fácil, 5=difícil]
+        - **NPR:** [P × S × D]
+        - **Proposta de Mitigação:** [Ação para reduzir o risco]
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risco_geral
+    attributes:
+      label: Classificação Geral de Risco
+      description: "Baseado no maior NPR da FMEA."
+      options:
+        - "🔴 Alto — NPR ≥ 50 ou risco em dados sensíveis/segurança"
+        - "🟡 Médio — NPR entre 20 e 49"
+        - "🟢 Baixo — NPR < 20"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## 📊 Impacto e Planejamento"
+
+  - type: dropdown
+    id: impacto_areas
+    attributes:
+      label: Áreas Impactadas
+      multiple: true
+      options:
+        - "Dados do cliente / Integridade"
+        - "Segurança / Autenticação / 21 CFR Part 11"
+        - "Integração com sistemas externos"
+        - "Interface do usuário"
+        - "Regras de negócio"
+        - "Performance"
+        - "Relatórios / Exportações"
+        - "Modelo de dados / Banco de dados"
+        - "API / Integrações"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options:
+        - "🔴 Urgente"
+        - "🟠 Alta"
+        - "🟡 Normal"
+        - "🟢 Baixa"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tamanho
+    attributes:
+      label: Tamanho Estimado (Size)
+      options:
+        - "P — Pequeno (até 1 dia)"
+        - "M — Médio (2-5 dias)"
+        - "G — Grande (1-2 semanas)"
+        - "GG — Muito Grande (mais de 2 semanas)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: verificacao
+    attributes:
+      label: Resultado da Verificação
+      description: "(Preenchido após desenvolvimento)"
+      placeholder: |
+        **Data da verificação:**
+        **Verificado por:**
+        **Resultado:** Conforme / Não Conforme
+        **Observações:**
+    validations:
+      required: false

@@ -1,0 +1,71 @@
+name: "🔧 Tarefa Técnica / Refatoração"
+description: "Melhoria técnica, débito técnico, infraestrutura"
+title: "[TECH] "
+labels: ["tech-debt", "triagem-pendente"]
+body:
+
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema / Produto
+      options:
+        - "AWM Server"
+        - "AWM Client"
+        - "Precision Docs"
+        - "Infra / CI-CD"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      placeholder: "O que precisa ser feito e por quê?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de Tarefa
+      options:
+        - "Refatoração de código"
+        - "Atualização de dependências"
+        - "Melhoria de performance"
+        - "Melhoria de CI/CD"
+        - "Correção de vulnerabilidade"
+        - "Documentação técnica"
+        - "Infraestrutura / DevOps"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risco
+    attributes:
+      label: Nível de Risco
+      options:
+        - "🔴 Alto — Altera comportamento ou estrutura de dados"
+        - "🟡 Médio — Mudança interna com potencial efeito colateral"
+        - "🟢 Baixo — Mudança isolada sem impacto funcional"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impacto_usuario
+    attributes:
+      label: Impacto ao Usuário Final
+      options:
+        - "Sim — Perceberá mudança"
+        - "Indireto — Performance ou estabilidade"
+        - "Nenhum — Puramente interno"
+    validations:
+      required: true
+
+  - type: input
+    id: versao_alvo
+    attributes:
+      label: Versão Alvo
+      placeholder: "v4.0.0"
+    validations:
+      required: false

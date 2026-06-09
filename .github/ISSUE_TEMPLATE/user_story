@@ -1,0 +1,93 @@
+name: "📖 História de Usuário (User Story)"
+description: "Criar uma nova história de usuário focada no valor de negócio e na perspectiva do cliente"
+title: "[US] "
+labels: ["user-story", "triagem-pendente"]
+body:
+
+  - type: markdown
+    attributes:
+      value: "## 📖 Descrição da História de Usuário"
+
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema / Produto
+      options:
+        - "AWM Server"
+        - "AWM Client"
+        - "Precision Docs"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: textarea
+    id: historia
+    attributes:
+      label: História
+      description: "Descreva a necessidade na perspectiva do usuário."
+      placeholder: |
+        **Como** [tipo de usuário / persona]
+        **Quero** [realizar uma ação / ter uma funcionalidade]
+        **Para que** [eu obtenha um valor / benefício]
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios_aceite
+    attributes:
+      label: Critérios de Aceite
+      description: "Quais condições devem ser atendidas para que essa história seja considerada concluída (Done)?"
+      placeholder: |
+        - [ ] Cenário 1: Dado que [contexto], quando [ação], então [resultado esperado]
+        - [ ] Cenário 2: O sistema deve validar...
+        - [ ] Cenário 3: Deve ser possível...
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencias
+    attributes:
+      label: Dependências e Bloqueios
+      description: "Esta história depende de outras tarefas, designs ou decisões?"
+      placeholder: "Ex: Depende da API ser construída na issue #123."
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "## 📊 Planejamento e Impacto"
+
+  - type: dropdown
+    id: risco_geral
+    attributes:
+      label: Nível de Risco
+      options:
+        - "🔴 Alto — Afeta regras de negócio críticas ou dados sensíveis"
+        - "🟡 Médio — Funcionalidade nova com impacto moderado"
+        - "🟢 Baixo — Mudança simples ou isolada"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options:
+        - "🔴 Urgente"
+        - "🟠 Alta"
+        - "🟡 Normal"
+        - "🟢 Baixa"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tamanho
+    attributes:
+      label: Tamanho Estimado (Size / Story Points)
+      options:
+        - "P — Pequeno (até 1 dia)"
+        - "M — Médio (2-5 dias)"
+        - "G — Grande (1-2 semanas)"
+        - "GG — Muito Grande (mais de 2 semanas - considere quebrar a US)"
+    validations:
+      required: true

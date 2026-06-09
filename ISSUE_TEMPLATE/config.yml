@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "📖 Guia FMEA e Classificação de Risco"
+    url: "https://github.com/PrecisionProof/iso-sgq/wiki/Guia-FMEA"
+    about: "Consulte a escala de Possibilidade, Severidade e Detectabilidade"

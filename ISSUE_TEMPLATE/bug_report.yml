@@ -1,0 +1,139 @@
+name: "🐛 Bug / Correção"
+description: "Reportar um bug ou solicitar correção"
+title: "[BUG] "
+labels: ["bug", "triagem-pendente"]
+body:
+
+  - type: markdown
+    attributes:
+      value: "## 🐛 Descrição do Bug"
+
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema / Produto
+      options:
+        - "AWM Server"
+        - "AWM Client"
+        - "Precision Docs"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: input
+    id: topico
+    attributes:
+      label: Tópico / Módulo Afetado
+      placeholder: "Ex: Módulo de Relatórios, Tela de Login"
+    validations:
+      required: true
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição do Bug
+      placeholder: |
+        **Comportamento atual:** ...
+        **Comportamento esperado:** ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para Reproduzir
+      placeholder: |
+        1. Acessar...
+        2. Clicar em...
+        3. Observar...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      options:
+        - "🔴 Crítica — Impede uso ou causa perda de dados"
+        - "🟠 Alta — Funcionalidade comprometida, sem workaround"
+        - "🟡 Média — Funcionalidade comprometida, existe workaround"
+        - "🟢 Baixa — Cosmético ou usabilidade menor"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risco
+    attributes:
+      label: Nível de Risco
+      options:
+        - "🔴 Alto — Afeta dados sensíveis, segurança ou conformidade"
+        - "🟡 Médio — Funcionalidade relevante sem impacto crítico"
+        - "🟢 Baixo — Impacto isolado e controlável"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade
+      options:
+        - "🔴 Urgente"
+        - "🟠 Alta"
+        - "🟡 Normal"
+        - "🟢 Baixa"
+    validations:
+      required: true
+
+  - type: input
+    id: versao
+    attributes:
+      label: Versão Onde Foi Identificado
+      placeholder: "v3.2.1"
+    validations:
+      required: true
+
+  - type: input
+    id: versao_alvo
+    attributes:
+      label: Versão Alvo para Correção
+      placeholder: "v3.2.2"
+    validations:
+      required: false
+
+  - type: input
+    id: origem
+    attributes:
+      label: Reportado por / Cliente
+      placeholder: "Ex: Cliente XPTO, Monitoramento interno, QA"
+    validations:
+      required: false
+
+  - type: input
+    id: data_esperada
+    attributes:
+      label: Data Esperada de Resolução
+      description: "Formato: YYYY-MM-DD"
+      placeholder: "2026-04-15"
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidências
+      description: "Screenshots, logs, vídeos."
+    validations:
+      required: false
+
+  - type: textarea
+    id: causa_raiz
+    attributes:
+      label: Análise de Causa Raiz / Impacto
+      description: "(Preenchido na triagem pelo líder técnico)"
+      placeholder: |
+        **Causa raiz:**
+        **Módulos afetados:**
+        **Risco de regressão:**
+        **Testes necessários:**
+    validations:
+      required: false

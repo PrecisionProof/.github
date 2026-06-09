@@ -32,27 +32,6 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: criterios_aceite
-    attributes:
-      label: Critérios de Aceite
-      description: "Quais condições devem ser atendidas para que essa história seja considerada concluída (Done)?"
-      placeholder: |
-        - [ ] Cenário 1: Dado que [contexto], quando [ação], então [resultado esperado]
-        - [ ] Cenário 2: O sistema deve validar...
-        - [ ] Cenário 3: Deve ser possível...
-    validations:
-      required: true
-
-  - type: textarea
-    id: dependencias
-    attributes:
-      label: Dependências e Bloqueios
-      description: "Esta história depende de outras tarefas, designs ou decisões?"
-      placeholder: "Ex: Depende da API ser construída na issue #123."
-    validations:
-      required: false
-
   - type: markdown
     attributes:
       value: "## 📊 Planejamento e Impacto"
